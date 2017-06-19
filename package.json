@@ -1,0 +1,12 @@
+{
+  "name": "elegant-writing-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "rm .git/hooks/pre-commit && ln .pre-commit .git/hooks/pre-commit"
+  },
+  "author": "",
+  "license": "ISC"
+}
