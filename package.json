@@ -8,5 +8,14 @@
     "postinstall": "rm .git/hooks/pre-commit && ln .pre-commit .git/hooks/pre-commit"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "babel-register": "^6.24.1"
+  }
 }
