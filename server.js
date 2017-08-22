@@ -1,16 +1,13 @@
-// server.js
-import express from 'express'
+var casper = require('casper').create()
 
-const app = express()
-const PORT = 3000
+casper.start('http://casperjs.org/')
 
-app.post('/', (req, res) => {
-  res.send('Hello!')
+casper.then(function() {
+  this.echo('First Page: ' + this.getTitle())
 })
 
-const server = app.listen(PORT, () => {
-  const host = server.address().address
-  const port = server.address().port
-
-  console.log('Listening at http://%s:%s', host, port)
+casper.thenOpen('http://phantomjs.org', function() {
+  this.echo('Second Page: ' + this.getTitle())
 })
+
+casper.run()
