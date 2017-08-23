@@ -1,17 +1,35 @@
+# Logs
+#
+logs
+*.log
+
+
+# Runtime data
+#
+pids
+*.pid
+*.seed
+
+
+# Node.js
+#
+node_modules/
+node_shrinkwrap
+npm-debug.log*
+yarn*
+
+
+# Build
+#
+dist/
+
+
 # OSX
 #
 .DS_Store
 
+
 # Xcode
-# 忽略Xcode本地用户配置信息
-*.xcuserstate
-*.xcuserdatad/
-xcuserdata/
-xcshareddata/
-.metadata/
-# 忽略`Pods/`和`Podfile.lock`
-Pods/
-Podfile.lock
 #
 build/
 *.pbxuser
@@ -31,37 +49,15 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
-# Android/IntelliJ
+
+# Android/IJ
 #
-build/
 .idea
 .gradle
 local.properties
-*.iml
+.happypack
 
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
 
-# BUCK
-buck-out/
-\.buckd/
-android/app/libs
-*.keystore
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
-
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots
-
-#vscode
-.vscode/
-jsconfig.json
+# https 
+https-server-cert.pem
+https-server-key.pem

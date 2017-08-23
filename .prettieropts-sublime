@@ -1,0 +1,46 @@
+{
+  // ----------------------------------------------------------------------
+  // Auto Format on Save
+  // ----------------------------------------------------------------------
+  //
+  // @param {bool} "auto_format_on_save"
+  // @default false
+  //
+  // Whether or not to run the `js_prettier` command automatically
+  // on every file save.
+  // ----------------------------------------------------------------------
+
+  "auto_format_on_save": true,
+
+
+  // ----------------------------------------------------------------------
+  // Prettier Options
+  // ----------------------------------------------------------------------
+  //
+  // Native Prettier Options. For a complete list of supported options and
+  // acceptable values, visit https://github.com/jlongster/prettier.
+  // ----------------------------------------------------------------------
+
+  "prettier_options": {
+    // If true, will use single instead of double quotes
+    "singleQuote": true,
+
+    // Controls the printing of trailing commas wherever possible.
+    //
+    // Valid options:
+    //
+    // "none" - No trailing commas
+    // "es5"  - Trailing commas where valid in ES5 (objects, arrays, etc)
+    // "all"  - Trailing commas wherever possible (function arguments)
+    "trailingComma": "all",
+
+    // If true, puts the `>` of a multi-line jsx element at the end of
+    // the last line instead of being alone on the next line
+    "jsxBracketSameLine": true,
+
+    // Whether to add a semicolon at the end of every line (semi: true), or
+    // only at the beginning of lines that may introduce
+    // ASI failures (semi: false)
+    "semi": false
+  }
+}
