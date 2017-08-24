@@ -13,7 +13,6 @@
         "trailingComma": "all",
         "bracketSpacing": true,
         "jsxBracketSameLine": true,
-        "parser": "graphql",
         // "max-statements":  50,
         // "max-depth":  5,
         // "max-nested-callback":  3,
