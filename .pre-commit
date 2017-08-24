@@ -10,11 +10,10 @@ if [ -n "${CHANGED_ASSETS}" ]; then
 
     # Add back the modified/prettified files to staging
     echo "$jsfiles" | xargs git add
+    
     node_modules/.bin/eslint --fix ${CHANGED_ASSETS}
 
     exit $?
 else
     exit 0
 fi
-
-
