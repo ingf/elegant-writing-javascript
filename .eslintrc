@@ -7,7 +7,7 @@
   "rules": {
     "prettier/prettier": [
       "error", 
-      // "fb"
+      "fb",
 
       {
         "singleQuote": true
