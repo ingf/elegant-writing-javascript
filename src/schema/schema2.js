@@ -1,6 +1,4 @@
-
-import { find, filter }
- from 'lodash'
+import { find, filter } from 'lodash'
 
 import { makeExecutableSchema } from 'graphql-tools'
 
@@ -81,22 +79,6 @@ const resolvers = {
   Post: {
     author: (post, time) => {
       console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-      console.log('post', post, 'time', time)
-
       return find(authors, { id: post.authorId })
     },
   },
