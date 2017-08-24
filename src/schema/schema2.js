@@ -5,7 +5,8 @@
 // Read the complete docs for graphql-tools here:
 // http://dev.apollodata.com/tools/graphql-tools/generate-schema.html
 
-import { find, filter } from 'lodash';
+import { find, filter } from
+ 'lodash';
 
 import { makeExecutableSchema } from 'graphql-tools';
 
