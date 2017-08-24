@@ -5,10 +5,10 @@
 // Read the complete docs for graphql-tools here:
 // http://dev.apollodata.com/tools/graphql-tools/generate-schema.html
 
-import { find, filter } 
-from 'lodash';
+import {find, filter}
+ from 'lodash';
 
-import { makeExecutableSchema } from 'graphql-tools';
+import {makeExecutableSchema} from 'graphql-tools';
 
 const typeDefs = `
   type Author {
@@ -40,16 +40,16 @@ const typeDefs = `
 `;
 
 const authors = [
-  { id: 1, firstName: 'Tom', lastName: 'Coleman' },
-  { id: 2, firstName: 'Sashko', lastName: 'Stubailo' },
-  { id: 3, firstName: 'Mikhail', lastName: 'Novikov' }
+  {id: 1, firstName: 'Tom', lastName: 'Coleman'},
+  {id: 2, firstName: 'Sashko', lastName: 'Stubailo'},
+  {id: 3, firstName: 'Mikhail', lastName: 'Novikov'},
 ];
 
 const posts = [
-  { id: 1, authorId: 1, title: 'Introduction to GraphQL', votes: 2 },
-  { id: 2, authorId: 2, title: 'Welcome to Meteor', votes: 3 },
-  { id: 3, authorId: 2, title: 'Advanced GraphQL', votes: 1 },
-  { id: 4, authorId: 3, title: 'Launchpad is Cool', votes: 7 }
+  {id: 1, authorId: 1, title: 'Introduction to GraphQL', votes: 2},
+  {id: 2, authorId: 2, title: 'Welcome to Meteor', votes: 3},
+  {id: 3, authorId: 2, title: 'Advanced GraphQL', votes: 1},
+  {id: 4, authorId: 3, title: 'Launchpad is Cool', votes: 7},
 ];
 
 const getPosts = async () => {
@@ -68,32 +68,32 @@ const resolvers = {
       const p = await getPosts();
       return p;
     },
-    author: (_, { id }) => find(authors, { id })
+    author: (_, {id}) => find(authors, {id}),
   },
   Mutation: {
-    upvotePost: (_, { postId }) => {
+    upvotePost: (_, {postId}) => {
       console.log(_);
-      const post = find(posts, { id: postId });
+      const post = find(posts, {id: postId});
       if (!post) {
         throw new Error(`Couldn't find post with id ${postId}`);
       }
       post.votes += 1;
       return post;
-    }
+    },
   },
   Author: {
-    posts: author => filter(posts, { authorId: author.id })
+    posts: author => filter(posts, {authorId: author.id}),
   },
   Post: {
     author: (post, time) => {
       console.log('post', post, 'time', time);
 
-      return find(authors, { id: post.authorId });
-    }
-  }
+      return find(authors, {id: post.authorId});
+    },
+  },
 };
 
 export default makeExecutableSchema({
   typeDefs,
-  resolvers
+  resolvers,
 });

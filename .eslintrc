@@ -9,10 +9,11 @@
       "error", 
       {
         "singleQuote": true,
+        "semi": false,
         "trailingComma": "all",
-        "bracketSpacing": false,
+        "bracketSpacing": true,
         "jsxBracketSameLine": true,
-        "parser": "flow"
+        "parser": "flow",
       }
     ],
     // "no-console": 0,
