@@ -7,11 +7,11 @@
   "rules": {
     "prettier/prettier": [
       "error", 
-      "fb"
+      // "fb"
 
-      // {
-      //   "singleQuote": true
-      // }
+      {
+        "singleQuote": true
+      }
     ],
     // "no-console": 0,
     // "no-mixed-operators": 0,
