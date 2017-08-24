@@ -4,17 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "precommit": "lint-staged",
     "start": "nodemon src/server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "rm -rf .git/hooks/pre-commit && ln .pre-commit .git/hooks/pre-commit"
   },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
-  },
+
   "repository": {
     "type": "git",
     "url": "git@gitlab.intra.wepiao.com:FEI/Thor.git"
