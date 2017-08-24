@@ -14,6 +14,11 @@
         "bracketSpacing": true,
         "jsxBracketSameLine": true,
         "parser": "flow",
+        "max-statements":  50,
+        "max-depth":  5,
+        "max-nested-callback":  3,
+        "max-params":  5,
+        "complexity":  10,
       }
     ],
     // "no-console": 0,
