@@ -4,9 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "precommit": "lint-staged",
     "start": "nodemon src/server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "rm -rf .git/hooks/pre-commit && ln .pre-commit .git/hooks/pre-commit"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -34,6 +41,10 @@
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "^7.1.0"
+    "eslint-plugin-prettier": "^2.2.0",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.3",
+    "prettier": "^1.5.3"
   }
 }

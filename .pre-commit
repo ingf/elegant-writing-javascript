@@ -5,7 +5,9 @@
 CHANGED_ASSETS="$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null | grep '.js$' | xargs)"
 
 if [ -n "${CHANGED_ASSETS}" ]; then
+    echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
     node_modules/.bin/eslint --fix ${CHANGED_ASSETS}
+
     exit $?
 else
     exit 0
