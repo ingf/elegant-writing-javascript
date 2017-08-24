@@ -2,14 +2,29 @@
 
 # git diff --cached --name-only --diff-filter=ACM command returns all the file names those are part of that commit (except deleted files). And, then grep '.js$' filters only the JavaScript files.
 
-CHANGED_ASSETS="$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null | grep '.js$' | xargs)"
+# CHANGED_ASSETS="$(git diff --cached --name-only --diff-filter=ACM 2>/dev/null | grep '.js$' | xargs)"
 
-if [ -n "${CHANGED_ASSETS}" ]; then
-    echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
-    node_modules/.bin/eslint --fix ${CHANGED_ASSETS}
+# if [ -n "${CHANGED_ASSETS}" ]; then
+#     echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
+#     node_modules/.bin/eslint --fix ${CHANGED_ASSETS}
 
-    exit $?
-else
-    exit 0
-fi
+#     exit $?
+# else
+#     exit 0
+# fi
 
+
+
+#!/bin/sh
+jsfiles=$(git diff --cached --name-only --diff-filter=ACM | grep '\.jsx\?$' | tr '\n' ' ')
+[ -z "$jsfiles" ] && exit 0
+
+# Prettify all staged .js files
+echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
+
+# Add back the modified/prettified files to staging
+echo "$jsfiles" | xargs git add
+
+node_modules/.bin/eslint --fix ${CHANGED_ASSETS}
+
+exit 0
