@@ -7,7 +7,8 @@ import { graphqlKoa, graphiqlKoa } from 'graphql-server-koa'
 
 // import schema from './schema/schema'
 // import schema from "./schema1"
-import schema from './schema/schema3.js'
+
+import schema from './schema/schema3'
 
 const app = new Koa()
 const router = new KoaRouter()

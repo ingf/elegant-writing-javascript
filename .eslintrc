@@ -1,7 +1,13 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
   "plugins": [
+    "react",
     "prettier"
   ],
   "rules": {
@@ -15,6 +21,7 @@
         "jsxBracketSameLine": true,
       }
     ],
+    "semi": [2, "never"],
     // "no-mixed-operators": 0,
     // "no-plusplus": ["error", {
     //   "allowForLoopAfterthoughts": true
@@ -22,7 +29,6 @@
     // "no-unused-expressions": [1, {
     //   "allowShortCircuit": true
     // }],
-    "semi": [2, "never"],
     // "quotes": 0,
     // "arrow-parens": 0,
     // "arrow-body-style": 0,
@@ -33,6 +39,10 @@
     // "react/prop-types": 0,
     "import/no-unresolved": 0,
     "import/extensions": 0,
+    // "import/no-unresolved": [2, {
+    //   "commonjs": true,
+    //   "amd": true,
+    // }],
     // "import/no-extraneous-dependencies": 0,
     "max-statements": [2, 50],
     "max-depth": [2, 5],
@@ -40,9 +50,8 @@
     "max-params": [2, 5],
     "complexity": [2, 10],
   },
-  // "globals": {
-  //   "fetch": true,
-  //   "__DEV__": true,
-  //   "alert": true,
-  // }
+  "env": {
+    "browser": true,
+    "node": true
+  }
 }
