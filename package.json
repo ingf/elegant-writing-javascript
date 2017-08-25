@@ -8,7 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "rm -rf .git/hooks/pre-commit && ln .pre-commit .git/hooks/pre-commit"
   },
-
   "repository": {
     "type": "git",
     "url": "git@gitlab.intra.wepiao.com:FEI/Thor.git"
@@ -33,6 +32,7 @@
     "babel-register": "^6.24.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-prettier": "^2.2.0",

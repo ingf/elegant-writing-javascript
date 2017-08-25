@@ -5,16 +5,16 @@
     "prettier"
   ],
   "rules": {
-    // "prettier/prettier": [
-    //   "error", 
-    //   {
-    //     "singleQuote": true,
-    //     "semi": false,
-    //     "trailingComma": "all",
-    //     "bracketSpacing": true,
-    //     "jsxBracketSameLine": true,
-    //   }
-    // ],
+    "prettier/prettier": [
+      "error", 
+      {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true,
+      }
+    ],
     // "no-mixed-operators": 0,
     // "no-plusplus": ["error", {
     //   "allowForLoopAfterthoughts": true
