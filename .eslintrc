@@ -21,7 +21,19 @@
         "jsxBracketSameLine": true,
       }
     ],
+    // 一个函数的复杂性不超过 10。你的所有分支，循环，回调等等统统加在一起，在一个函数里不超过 10 个（注意不是嵌套）
+    "complexity": [2, 10],
+    // 一个函数的嵌套不能超过 4 层。多个 for 循环，深层的 if-else，这些都是罪恶之源。如果超过这个限制，只能拆分，或者使用函数式编程：map/filter/reduce
+    "max-depth": [2, 4],
+    // 一个函数最多有 3 层 callback。这是逼着程序员不要误用 callback，尽量多用 Promise、async/await
+    "max-nested-callbacks": [2, 3],
+    // 一个函数最多 5 个参数。参数太多的函数，基本是试图揉太多事情在一起
+    "max-params": [2, 5],
+    // 一个函数最多有 50 行代码。那么超过 50 行代码怎么办？要么拆分之，要么精简之
+    "max-statements": [2, 50],
     "semi": [2, "never"],
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
     // "no-mixed-operators": 0,
     // "no-plusplus": ["error", {
     //   "allowForLoopAfterthoughts": true
@@ -37,18 +49,11 @@
     // "react/prefer-stateless-function": 0,
     // "react/require-default-props": 0,
     // "react/prop-types": 0,
-    "import/no-unresolved": 0,
-    "import/extensions": 0,
     // "import/no-unresolved": [2, {
     //   "commonjs": true,
     //   "amd": true,
     // }],
     // "import/no-extraneous-dependencies": 0,
-    "max-statements": [2, 50],
-    "max-depth": [2, 5],
-    "max-nested-callbacks": [2, 3],
-    "max-params": [2, 5],
-    "complexity": [2, 10],
   },
   "env": {
     "browser": true,
