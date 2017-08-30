@@ -139,7 +139,7 @@ saveCityZipCode(city, zipCode)
 
 **Bad:**
 
-``` javascriptjs
+``` javascript
 function emailClients(clients) {
   clients.forEach((client) => {
     const clientRecord = database.lookup(client)
@@ -528,7 +528,7 @@ npm install --save babel-preset-es2015
 
 在当前目录下建立文件.babelrc，写入：
 
-```
+```json
 {
   "presets": ['es2015']
 }
@@ -544,7 +544,7 @@ npm install --save babel-preset-es2015
 
 这又怎么行呢，拿工资就得好好写代码，因此 lint 非常有必要，特别是对于大型项目，他可以保证代码符合一定的风格，有起码的可读性，团队里的其他人可以尽快掌握他人的代码。对于 JavaScript 项目而言，目前 ESLint 将是一个很好的选择。ESLint 的安装过程就不介绍了，请参考[官网](http://eslint.org/)，下面讲一个非常严格的 ESLint 的配置，这是对上面编写简洁的 JavaScript 代码一节最好的回应。
 
-```js
+```json
 {
   "parser": "babel-eslint",
   "extends": [
@@ -598,7 +598,7 @@ Prettier 一个 JavaScript 格式化工具. 它的灵感来源于 refmt，它对
 
 自动格式化代码，不管你原先的代码格式乱成什么样，他都会格式化成一样的，这个功能 **非常棒**，真的非常棒。以后我们再也不用关心代码格式的问题了。
 
-ESLint 和 Prettier 确定了以后，一定要加到 pre commit hook 里面，因为人都是懒惰的，不要指望他们会主动去执行 ESLint 和 Prettier，所以新建了下面的 .pre-commit 文件，在 package.json 的scripts 的 postinstall 时 soft link 到 .git/hooks/pre-commit，这样在 pre commit 时会自动执行以下脚本。尽量在项目初始阶段就加入 pre commit hook，在项目中途加入可能会遇到团队的反对，执行起来较难。这也是面试的时候可以关注的一个地方，我们提高效率需要切实可行的手段，需要落到实处。
+ESLint 和 Prettier 确定了以后，一定要加到 pre commit hook 里面，因为人都是懒惰的，不要指望所有工程师都会主动去执行 ESLint 和 Prettier，所以新建了下面的 .pre-commit 文件，在 package.json 的scripts 的 postinstall 时 soft link 到 .git/hooks/pre-commit，这样在 pre commit 时会自动执行以下脚本。尽量在项目初始阶段就加入 pre commit hook，在项目中途加入可能会遇到团队的反对，执行起来较难。这也是面试的时候可以关注的一个地方，我们提高效率需要切实可行的手段，需要落到实处。
 
 ```shell
 #!/bin/sh
@@ -621,7 +621,7 @@ else
 fi
 ```
 
-如果想要在编辑时就格式化代码，Prettier 针对当前主流编辑器也有插件，请参考 [这里](https://github.com/prettier/prettier#editor-integration) ，另外 ESLint 可以和 Prettier 很好的搭配使用，参考 [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) ，以上所有的配置和文件我都整理到了 [这个项目](https://github.com/ingf/elegant-writing-javascript) 里，为了让大伙能够好好写代码，真的是操碎了心。
+以上命令会在 pre commit 时先执行 Prettier 格式化，然后再执行 ESLint 的校验。如果想要在编辑时就格式化代码，Prettier 针对当前主流编辑器也有插件，请参考 [这里](https://github.com/prettier/prettier#editor-integration) ，另外 ESLint 可以和 Prettier 很好的搭配使用，参考 [eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier) ，以上所有的配置和文件我都整理到了 [这个项目](https://github.com/ingf/elegant-writing-javascript) 里，为了让大伙能够好好写代码，真的是操碎了心。
 
 ### 采用函数式编程
 
