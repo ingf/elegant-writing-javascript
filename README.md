@@ -10,43 +10,6 @@
 
 接下来，我总结整理了一大套理论和实操，以飨各位。
 
-### 目录
-
-------
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [目录](#%E7%9B%AE%E5%BD%95)
-- [避免使用 js 糟粕和鸡肋](#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-js-%E7%B3%9F%E7%B2%95%E5%92%8C%E9%B8%A1%E8%82%8B)
-- [编写简洁的 JavaScript 代码](#%E7%BC%96%E5%86%99%E7%AE%80%E6%B4%81%E7%9A%84-javascript-%E4%BB%A3%E7%A0%81)
-  - [变量](#%E5%8F%98%E9%87%8F)
-    - [使用有意义，可读性好的变量名](#%E4%BD%BF%E7%94%A8%E6%9C%89%E6%84%8F%E4%B9%89%E5%8F%AF%E8%AF%BB%E6%80%A7%E5%A5%BD%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D)
-    - [使用 ES6 的 const 定义常量](#%E4%BD%BF%E7%94%A8-es6-%E7%9A%84-const-%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F)
-    - [使用易于检索的名称](#%E4%BD%BF%E7%94%A8%E6%98%93%E4%BA%8E%E6%A3%80%E7%B4%A2%E7%9A%84%E5%90%8D%E7%A7%B0)
-    - [使用说明性的变量(即有意义的变量名)](#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%80%A7%E7%9A%84%E5%8F%98%E9%87%8F%E5%8D%B3%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D)
-  - [方法](#%E6%96%B9%E6%B3%95)
-    - [保持函数功能的单一性](#%E4%BF%9D%E6%8C%81%E5%87%BD%E6%95%B0%E5%8A%9F%E8%83%BD%E7%9A%84%E5%8D%95%E4%B8%80%E6%80%A7)
-    - [函数名应明确表明其功能（见名知意）](#%E5%87%BD%E6%95%B0%E5%90%8D%E5%BA%94%E6%98%8E%E7%A1%AE%E8%A1%A8%E6%98%8E%E5%85%B6%E5%8A%9F%E8%83%BD%E8%A7%81%E5%90%8D%E7%9F%A5%E6%84%8F)
-    - [使用默认变量替代短路运算或条件](#%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E5%8F%98%E9%87%8F%E6%9B%BF%E4%BB%A3%E7%9F%AD%E8%B7%AF%E8%BF%90%E7%AE%97%E6%88%96%E6%9D%A1%E4%BB%B6)
-    - [函数参数 (理想情况下应不超过 2 个)](#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0-%E7%90%86%E6%83%B3%E6%83%85%E5%86%B5%E4%B8%8B%E5%BA%94%E4%B8%8D%E8%B6%85%E8%BF%87-2-%E4%B8%AA)
-    - [移除重复代码](#%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81)
-    - [避免副作用](#%E9%81%BF%E5%85%8D%E5%89%AF%E4%BD%9C%E7%94%A8)
-    - [避免条件判断](#%E9%81%BF%E5%85%8D%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD)
-- [使用 ES6/ES7 新特性](#%E4%BD%BF%E7%94%A8-es6es7-%E6%96%B0%E7%89%B9%E6%80%A7)
-    - [箭头函数](#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
-    - [模板字符串](#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2)
-    - [解构](#%E8%A7%A3%E6%9E%84)
-    - [使用 ES6 的 classes 而不是 ES5 的 Function](#%E4%BD%BF%E7%94%A8-es6-%E7%9A%84-classes-%E8%80%8C%E4%B8%8D%E6%98%AF-es5-%E7%9A%84-function)
-    - [Async/Await 是比 Promise 和回调更好的选择](#asyncawait-%E6%98%AF%E6%AF%94-promise-%E5%92%8C%E5%9B%9E%E8%B0%83%E6%9B%B4%E5%A5%BD%E7%9A%84%E9%80%89%E6%8B%A9)
-- [Babel](#babel)
-    - [Use next generation JavaScript, today](#use-next-generation-javascript-today)
-- [ESLint](#eslint)
-- [Prettier](#prettier)
-- [采用函数式编程](#%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B)
-- [总结](#%E6%80%BB%E7%BB%93)
-- [参考](#%E5%8F%82%E8%80%83)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### 避免使用 js 糟粕和鸡肋
 
@@ -64,13 +27,13 @@
 
 ##### 使用有意义，可读性好的变量名
 
-**Bad:**
+Bad:
 
 ``` javascript
 var yyyymmdstr = moment().format('YYYY/MM/DD')
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 var yearMonthDay = moment().format('YYYY/MM/DD')
@@ -80,13 +43,13 @@ var yearMonthDay = moment().format('YYYY/MM/DD')
 
 反例中使用"var"定义的"常量"是可变的，在声明一个常量时，该常量在整个程序中都应该是不可变的。
 
-**Bad:**
+Bad:
 
 ``` javascript
 var FIRST_US_PRESIDENT = "George Washington"
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 const FIRST_US_PRESIDENT = "George Washington"
@@ -96,14 +59,14 @@ const FIRST_US_PRESIDENT = "George Washington"
 
 我们要阅读的代码比要写的代码多得多， 所以我们写出的代码的可读性和可检索性是很重要的。使用没有意义的变量名将会导致我们的程序难于理解，将会伤害我们的读者， 所以请使用可检索的变量名。 类似 [buddy.js](https://github.com/danielstjules/buddy.js) 和 [ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md) 的工具可以帮助我们找到未命名的常量。
 
-**Bad:**
+Bad:
 
 ``` javascript 
 // What the heck is 86400000 for?
 setTimeout(blastOff, 86400000)
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 // Declare them as capitalized `const` globals.
@@ -114,7 +77,7 @@ setTimeout(blastOff, MILLISECONDS_IN_A_DAY)
 
 ##### 使用说明性的变量(即有意义的变量名)
 
-**Bad:**
+Bad:
 
 ``` javascript
 const address = 'One Infinite Loop, Cupertino 95014'
@@ -122,7 +85,7 @@ const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/
 saveCityZipCode(address.match(cityZipCodeRegex)[1], address.match(cityZipCodeRegex)[2])
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 const address = 'One Infinite Loop, Cupertino 95014'
@@ -137,7 +100,7 @@ saveCityZipCode(city, zipCode)
 
 这是软件工程中最重要的一条规则，当函数需要做更多的事情时，它们将会更难进行编写、测试、理解和组合。当你能将一个函数抽离出只完成一个动作，他们将能够很容易的进行重构并且你的代码将会更容易阅读。如果你严格遵守本条规则，你将会领先于许多开发者。
 
-**Bad:**
+Bad:
 
 ``` javascript
 function emailClients(clients) {
@@ -150,7 +113,7 @@ function emailClients(clients) {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 function emailActiveClients(clients) {
@@ -167,7 +130,7 @@ function isActiveClient(client) {
 
 ##### 函数名应明确表明其功能（见名知意）
 
-**Bad:**
+Bad:
 
 ``` javascript
 function addToDate(date, month) {
@@ -180,7 +143,7 @@ const date = new Date()
 addToDate(date, 1)
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 function addMonthToDate(month, date) {
@@ -193,7 +156,7 @@ addMonthToDate(1, date)
 
 ##### 使用默认变量替代短路运算或条件
 
-**Bad:**
+Bad:
 
 ``` javascript
 function createMicrobrewery(name) {
@@ -202,7 +165,7 @@ function createMicrobrewery(name) {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
@@ -216,7 +179,7 @@ function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
 
 应避免三个以上参数的函数。通常情况下，参数超过三个意味着函数功能过于复杂，这时需要重新优化你的函数。当确实需要多个参数时，大多情况下可以考虑这些参数封装成一个对象。
 
-**Bad:**
+Bad:
 
 ``` javascript
 function createMenu(title, body, buttonText, cancellable) {
@@ -224,7 +187,7 @@ function createMenu(title, body, buttonText, cancellable) {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 function createMenu({ title, body, buttonText, cancellable }) {
@@ -245,7 +208,7 @@ createMenu({
 
 重复代码通常是因为两个或多个稍微不同的东西， 它们共享大部分，但是它们的不同之处迫使你使用两个或更多独立的函数来处理大部分相同的东西。 移除重复代码意味着创建一个可以处理这些不同之处的抽象的函数/模块/类。
 
-**Bad:**
+Bad:
 
 ``` javascript
 function showDeveloperList(developers) {
@@ -279,7 +242,7 @@ function showManagerList(managers) {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 function showEmployeeList(employees) {
@@ -310,7 +273,7 @@ function showEmployeeList(employees) {
 
 当函数产生了除了“接受一个值并返回一个结果”之外的行为时，称该函数产生了副作用。比如写文件、修改全局变量或将你的钱全转给了一个陌生人等。程序在某些情况下确实需要副作用这一行为，这时应该将这些功能集中在一起，不要用多个函数/类修改某个文件。用且只用一个 service 完成这一需求。
 
-**Bad:**
+Bad:
 
 ``` javascript
 const addItemToCart = (cart, item) => {
@@ -318,7 +281,7 @@ const addItemToCart = (cart, item) => {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 const addItemToCart = (cart, item) => {
@@ -330,7 +293,7 @@ const addItemToCart = (cart, item) => {
 
 这看起来似乎不太可能。大多人听到这的第一反应是：“怎么可能不用 if 完成其他功能呢？”许多情况下通过使用多态(polymorphism)可以达到同样的目的。第二个问题在于采用这种方式的原因是什么。答案是我们之前提到过的：保持函数功能的单一性。
 
-**Bad:**
+Bad:
 
 ``` javascript
 class Airplane {
@@ -348,7 +311,7 @@ class Airplane {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 class Airplane {
@@ -383,7 +346,7 @@ class Cessna extends Airplane {
 
 ##### 箭头函数
 
-**Bad:**
+Bad:
 
 ``` javascript
 function foo() {
@@ -391,7 +354,7 @@ function foo() {
 }
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 let foo = () => {
@@ -401,13 +364,13 @@ let foo = () => {
 
 #####  模板字符串
 
-**Bad:**
+Bad:
 
 ``` javascript
 var message = 'Hello ' + name + ', it\'s ' + time + ' now'
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 const message = `Hello ${name}, it's ${time} now`
@@ -415,7 +378,7 @@ const message = `Hello ${name}, it's ${time} now`
 
 ##### 解构
 
-**Bad:**
+Bad:
 
 ``` javascript
 var data = { name: 'dys', age: 1 }
@@ -423,7 +386,7 @@ var name = data.name,
     age = data.age
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 const data = {name:'dys', age:1} 
@@ -434,7 +397,7 @@ const {name, age} = data
 
 典型的 ES5 的类(function)在继承、构造和方法定义方面可读性较差，当需要继承时，优先选用 classes。
 
-**Bad:**
+Bad:
 
 ``` javascript
 // 那个复杂的原型链继承就不贴代码了
@@ -476,7 +439,7 @@ class Human extends Mammal {
 
 Promise 代码的意思是：“我想执行这个操作，然后(then)在其他操作中使用它的结果”。await 有效地反转了这个意思，使得它更像：“我想要取得这个操作的结果”。我喜欢，因为这听起来更简单，所以尽可能的使用 async/await。
 
-**Bad:**
+Bad:
 
 ``` javascript
 require('request-promise').get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
@@ -491,7 +454,7 @@ require('request-promise').get('https://en.wikipedia.org/wiki/Robert_Cecil_Marti
   })
 ```
 
-**Good:**
+Good:
 
 ``` javascript
 async function getCleanCodeArticle() {
@@ -600,7 +563,7 @@ Prettier 一个 JavaScript 格式化工具. 它的灵感来源于 refmt，它对
 
 ESLint 和 Prettier 确定了以后，一定要加到 pre commit hook 里面，因为人都是懒惰的，不要指望所有工程师都会主动去执行 ESLint 和 Prettier，所以新建了下面的 .pre-commit 文件，在 package.json 的scripts 的 postinstall 时 soft link 到 .git/hooks/pre-commit，这样在 pre commit 时会自动执行以下脚本。尽量在项目初始阶段就加入 pre commit hook，在项目中途加入可能会遇到团队的反对，执行起来较难。这也是面试的时候可以关注的一个地方，我们提高效率需要切实可行的手段，需要落到实处。
 
-```shell
+```Shell
 #!/bin/sh
 
 # git diff --cached --name-only --diff-filter=ACM command returns all the file names those are part of that commit (except deleted files). And, then grep '.js$' filters only the JavaScript files.
