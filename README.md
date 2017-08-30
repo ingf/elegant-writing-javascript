@@ -564,7 +564,7 @@ npm install --save babel-preset-es2015
 
 Prettier 一个 JavaScript 格式化工具. 它的灵感来源于 refmt，它对于 ES6、ES7、 JSX 和 Flow 的语言特性有着高级的支持。通过将 JavaScript 解析为 AST 并且基于 AST 美化和打印，Prettier 会丢掉几乎全部的原始的代码风格，从而保证 JavaScript 代码风格的一致性，你可以先感受一下。
 
-![2017-08-29 23.32.57](/Users/inf/Downloads/2017-08-29 23.32.57.gif)
+![2017-08-29 23.32.57](./prettier.gif)
 
 自动格式化代码，不管你原先的代码格式乱成什么样，他都会格式化成一样的，这个功能 **非常棒**，真的非常棒。以后我们再也不用关心代码格式的问题了。
 
