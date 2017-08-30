@@ -1,5 +1,3 @@
-
-
 几乎每个大一点公司都有一个“运行时间长，维护的工程师换了一批又一批”的项目，如果参与到这样的项目中来，大部分人只有一个感觉——”climb the shit mountain“。所以我们经常会说谁谁谁写的代码就像排泄物一样，为了避免成为别人嘴里的谁谁谁，所以我写的代码一般不注明作者日期信息（抖机灵，其实是因为 Git 能够很好的管理这些信息），所以在项目中，我们应该编写可维护性良好的代码。同时，对于工程师而言，提高自身的编码能力和编写易于阅读和维护的代码，是提高开发效率和职业身涯中必做的事情。我在面试的时候发现很多面试者拥有所谓的多年工作经验，一直在平庸的写着重复的代码，而从未去推敲、提炼和优化，这样是不可能提高编程水平的。
 
 那么如何编写出可维护的、优雅的代码呢？
@@ -15,8 +13,40 @@
 ### 目录
 
 ------
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-[TOC]
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [避免使用 js 糟粕和鸡肋](#%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8-js-%E7%B3%9F%E7%B2%95%E5%92%8C%E9%B8%A1%E8%82%8B)
+- [编写简洁的 JavaScript 代码](#%E7%BC%96%E5%86%99%E7%AE%80%E6%B4%81%E7%9A%84-javascript-%E4%BB%A3%E7%A0%81)
+  - [变量](#%E5%8F%98%E9%87%8F)
+    - [使用有意义，可读性好的变量名](#%E4%BD%BF%E7%94%A8%E6%9C%89%E6%84%8F%E4%B9%89%E5%8F%AF%E8%AF%BB%E6%80%A7%E5%A5%BD%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D)
+    - [使用 ES6 的 const 定义常量](#%E4%BD%BF%E7%94%A8-es6-%E7%9A%84-const-%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F)
+    - [使用易于检索的名称](#%E4%BD%BF%E7%94%A8%E6%98%93%E4%BA%8E%E6%A3%80%E7%B4%A2%E7%9A%84%E5%90%8D%E7%A7%B0)
+    - [使用说明性的变量(即有意义的变量名)](#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%80%A7%E7%9A%84%E5%8F%98%E9%87%8F%E5%8D%B3%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E5%8F%98%E9%87%8F%E5%90%8D)
+  - [方法](#%E6%96%B9%E6%B3%95)
+    - [保持函数功能的单一性](#%E4%BF%9D%E6%8C%81%E5%87%BD%E6%95%B0%E5%8A%9F%E8%83%BD%E7%9A%84%E5%8D%95%E4%B8%80%E6%80%A7)
+    - [函数名应明确表明其功能（见名知意）](#%E5%87%BD%E6%95%B0%E5%90%8D%E5%BA%94%E6%98%8E%E7%A1%AE%E8%A1%A8%E6%98%8E%E5%85%B6%E5%8A%9F%E8%83%BD%E8%A7%81%E5%90%8D%E7%9F%A5%E6%84%8F)
+    - [使用默认变量替代短路运算或条件](#%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E5%8F%98%E9%87%8F%E6%9B%BF%E4%BB%A3%E7%9F%AD%E8%B7%AF%E8%BF%90%E7%AE%97%E6%88%96%E6%9D%A1%E4%BB%B6)
+    - [函数参数 (理想情况下应不超过 2 个)](#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0-%E7%90%86%E6%83%B3%E6%83%85%E5%86%B5%E4%B8%8B%E5%BA%94%E4%B8%8D%E8%B6%85%E8%BF%87-2-%E4%B8%AA)
+    - [移除重复代码](#%E7%A7%BB%E9%99%A4%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81)
+    - [避免副作用](#%E9%81%BF%E5%85%8D%E5%89%AF%E4%BD%9C%E7%94%A8)
+    - [避免条件判断](#%E9%81%BF%E5%85%8D%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD)
+- [使用 ES6/ES7 新特性](#%E4%BD%BF%E7%94%A8-es6es7-%E6%96%B0%E7%89%B9%E6%80%A7)
+    - [箭头函数](#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0)
+    - [模板字符串](#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2)
+    - [解构](#%E8%A7%A3%E6%9E%84)
+    - [使用 ES6 的 classes 而不是 ES5 的 Function](#%E4%BD%BF%E7%94%A8-es6-%E7%9A%84-classes-%E8%80%8C%E4%B8%8D%E6%98%AF-es5-%E7%9A%84-function)
+    - [Async/Await 是比 Promise 和回调更好的选择](#asyncawait-%E6%98%AF%E6%AF%94-promise-%E5%92%8C%E5%9B%9E%E8%B0%83%E6%9B%B4%E5%A5%BD%E7%9A%84%E9%80%89%E6%8B%A9)
+- [Babel](#babel)
+    - [Use next generation JavaScript, today](#use-next-generation-javascript-today)
+- [ESLint](#eslint)
+- [Prettier](#prettier)
+- [采用函数式编程](#%E9%87%87%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B)
+- [总结](#%E6%80%BB%E7%BB%93)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ### 避免使用 js 糟粕和鸡肋
 
