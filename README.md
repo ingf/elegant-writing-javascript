@@ -528,7 +528,7 @@ npm install --save babel-preset-es2015
 
 在当前目录下建立文件.babelrc，写入：
 
-```json
+```javascript
 {
   "presets": ['es2015']
 }
@@ -544,7 +544,7 @@ npm install --save babel-preset-es2015
 
 这又怎么行呢，拿工资就得好好写代码，因此 lint 非常有必要，特别是对于大型项目，他可以保证代码符合一定的风格，有起码的可读性，团队里的其他人可以尽快掌握他人的代码。对于 JavaScript 项目而言，目前 ESLint 将是一个很好的选择。ESLint 的安装过程就不介绍了，请参考[官网](http://eslint.org/)，下面讲一个非常严格的 ESLint 的配置，这是对上面编写简洁的 JavaScript 代码一节最好的回应。
 
-```json
+```javascript
 {
   "parser": "babel-eslint",
   "extends": [
