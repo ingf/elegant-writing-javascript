@@ -10,7 +10,6 @@
 
 接下来，我总结整理了一大套理论和实操，以飨各位。
 
-
 ### 避免使用 js 糟粕和鸡肋
 
 ------
@@ -29,13 +28,13 @@
 
 Bad:
 
-``` javascript
+```javascript
 var yyyymmdstr = moment().format('YYYY/MM/DD')
 ```
 
 Good:
 
-``` javascript
+```javascript
 var yearMonthDay = moment().format('YYYY/MM/DD')
 ```
 
@@ -45,13 +44,13 @@ var yearMonthDay = moment().format('YYYY/MM/DD')
 
 Bad:
 
-``` javascript
+```javascript
 var FIRST_US_PRESIDENT = "George Washington"
 ```
 
 Good:
 
-``` javascript
+```javascript
 const FIRST_US_PRESIDENT = "George Washington"
 ```
 
@@ -61,14 +60,14 @@ const FIRST_US_PRESIDENT = "George Washington"
 
 Bad:
 
-``` javascript 
+```javascript 
 // What the heck is 86400000 for?
 setTimeout(blastOff, 86400000)
 ```
 
 Good:
 
-``` javascript
+```javascript
 // Declare them as capitalized `const` globals.
 const MILLISECONDS_IN_A_DAY = 86400000
 
@@ -79,7 +78,7 @@ setTimeout(blastOff, MILLISECONDS_IN_A_DAY)
 
 Bad:
 
-``` javascript
+```javascript
 const address = 'One Infinite Loop, Cupertino 95014'
 const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/
 saveCityZipCode(address.match(cityZipCodeRegex)[1], address.match(cityZipCodeRegex)[2])
@@ -87,7 +86,7 @@ saveCityZipCode(address.match(cityZipCodeRegex)[1], address.match(cityZipCodeReg
 
 Good:
 
-``` javascript
+```javascript
 const address = 'One Infinite Loop, Cupertino 95014'
 const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/
 const [, city, zipCode] = address.match(cityZipCodeRegex) || []
@@ -102,7 +101,7 @@ saveCityZipCode(city, zipCode)
 
 Bad:
 
-``` javascript
+```javascript
 function emailClients(clients) {
   clients.forEach((client) => {
     const clientRecord = database.lookup(client)
@@ -115,7 +114,7 @@ function emailClients(clients) {
 
 Good:
 
-``` javascript
+```javascript
 function emailActiveClients(clients) {
   clients
     .filter(isActiveClient)
@@ -132,7 +131,7 @@ function isActiveClient(client) {
 
 Bad:
 
-``` javascript
+```javascript
 function addToDate(date, month) {
   // ...
 }
@@ -145,7 +144,7 @@ addToDate(date, 1)
 
 Good:
 
-``` javascript
+```javascript
 function addMonthToDate(month, date) {
   // ...
 }
@@ -158,7 +157,7 @@ addMonthToDate(1, date)
 
 Bad:
 
-``` javascript
+```javascript
 function createMicrobrewery(name) {
   const breweryName = name || 'Hipster Brew Co.'
   // ...
@@ -167,7 +166,7 @@ function createMicrobrewery(name) {
 
 Good:
 
-``` javascript
+```javascript
 function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
   // ...
 }
@@ -181,7 +180,7 @@ function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
 
 Bad:
 
-``` javascript
+```javascript
 function createMenu(title, body, buttonText, cancellable) {
   // ...
 }
@@ -189,7 +188,7 @@ function createMenu(title, body, buttonText, cancellable) {
 
 Good:
 
-``` javascript
+```javascript
 function createMenu({ title, body, buttonText, cancellable }) {
   // ...
 }
@@ -210,7 +209,7 @@ createMenu({
 
 Bad:
 
-``` javascript
+```javascript
 function showDeveloperList(developers) {
   developers.forEach((developer) => {
     const expectedSalary = developer.calculateExpectedSalary()
@@ -244,7 +243,7 @@ function showManagerList(managers) {
 
 Good:
 
-``` javascript
+```javascript
 function showEmployeeList(employees) {
   employees.forEach((employee) => {
     const expectedSalary = employee.calculateExpectedSalary()
@@ -275,7 +274,7 @@ function showEmployeeList(employees) {
 
 Bad:
 
-``` javascript
+```javascript
 const addItemToCart = (cart, item) => {
   cart.push({ item, date: Date.now() })
 }
@@ -283,7 +282,7 @@ const addItemToCart = (cart, item) => {
 
 Good:
 
-``` javascript
+```javascript
 const addItemToCart = (cart, item) => {
   return [...cart, { item, date: Date.now() }]
 }
@@ -295,7 +294,7 @@ const addItemToCart = (cart, item) => {
 
 Bad:
 
-``` javascript
+```javascript
 class Airplane {
   //...
   getCruisingAltitude() {
@@ -313,7 +312,7 @@ class Airplane {
 
 Good:
 
-``` javascript
+```javascript
 class Airplane {
   //...
 }
@@ -348,7 +347,7 @@ class Cessna extends Airplane {
 
 Bad:
 
-``` javascript
+```javascript
 function foo() {
   // code
 }
@@ -356,23 +355,23 @@ function foo() {
 
 Good:
 
-``` javascript
+```javascript
 let foo = () => {
   // code
 }
 ```
 
-#####  模板字符串
+##### 模板字符串
 
 Bad:
 
-``` javascript
+```javascript
 var message = 'Hello ' + name + ', it\'s ' + time + ' now'
 ```
 
 Good:
 
-``` javascript
+```javascript
 const message = `Hello ${name}, it's ${time} now`
 ```
 
@@ -380,7 +379,7 @@ const message = `Hello ${name}, it's ${time} now`
 
 Bad:
 
-``` javascript
+```javascript
 var data = { name: 'dys', age: 1 }
 var name = data.name,
     age = data.age
@@ -388,7 +387,7 @@ var name = data.name,
 
 Good:
 
-``` javascript
+```javascript
 const data = {name:'dys', age:1} 
 const {name, age} = data 
 ```
@@ -399,13 +398,13 @@ const {name, age} = data
 
 Bad:
 
-``` javascript
+```javascript
 // 那个复杂的原型链继承就不贴代码了
 ```
 
  **Good：**
 
-``` javascript
+```javascript
 class Animal {
   constructor(age) {
     this.age = age
@@ -441,7 +440,7 @@ Promise 代码的意思是：“我想执行这个操作，然后(then)在其他
 
 Bad:
 
-``` javascript
+```javascript
 require('request-promise').get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
   .then(function(response) {
     return require('fs-promise').writeFile('article.html', response)
@@ -456,7 +455,7 @@ require('request-promise').get('https://en.wikipedia.org/wiki/Robert_Cecil_Marti
 
 Good:
 
-``` javascript
+```javascript
 async function getCleanCodeArticle() {
   try {
     var request = await require('request-promise')
@@ -595,7 +594,7 @@ fi
 ```js
 function getData(col) {
   var results = []
-  for (var i=0 i < col.length i++) {
+  for (var i = 0; i < col.length; i++) {
     if (col[i] && col[i].data) {
       results.push(col[i].data)
     }
@@ -665,3 +664,5 @@ One more thing：这些准则不会让你立刻变成一个优秀的工程师，
 [函数式编程简介](https://mp.weixin.qq.com/s?__biz=MjM5ODQ2MDIyMA==&mid=402307374&idx=1&sn=2ff35dc5bcadab0bbeae626f48f4e18e#rd)
 
 [抽象的能力](https://zhuanlan.zhihu.com/p/20617201)
+
+
