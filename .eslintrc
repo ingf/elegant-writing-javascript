@@ -6,19 +6,15 @@
     "prettier",
     "prettier/react"
   ],
-  "plugins": [
-    "react",
-    "prettier"
-  ],
+  "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": [
-      "error", 
+      "error",
       {
         "singleQuote": true,
-        "semi": false,
-        "trailingComma": "all",
-        "bracketSpacing": true,
+        "trailingComma": "es5",
         "jsxBracketSameLine": true,
+        "semi": false
       }
     ],
     // 一个函数的复杂性不超过 10，所有分支、循环、回调加在一起，在一个函数里不超过 10 个
@@ -34,7 +30,7 @@
     // 坚定的 semicolon-less 拥护者
     "semi": [2, "never"],
     "import/no-unresolved": 0,
-    "import/extensions": 0,
+    "import/extensions": 0
   },
   "env": {
     "browser": true,
